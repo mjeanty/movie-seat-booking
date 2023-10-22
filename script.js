@@ -15,7 +15,7 @@ let ticketPrice = +movieSelect.value
 //save selected movie index and price
 function setMovieData(movieIndex, moviePrice){
     localStorage.setItem('selectedMovieIndex', movieIndex)
-    localStorage.setitem('selectedMoviePrice', moviePride)
+    localStorage.setitem('selectedMoviePrice', moviePrice)
 }
 
 //update the total and count
@@ -53,6 +53,12 @@ function populateUI() {
         })
 
     }
+    const selectedMovieIndex =localStorage.getItem('selectedMovieIndex')
+    if(selectedMovieIndex !== null){
+        movieSelect.selectedIndex = selectedMovieIndex
+
+    }
+
 }
 // movie select event
 movieSelect.addEventListener('change', e=>{
@@ -74,3 +80,6 @@ container .addEventListener('click', e =>{
 
    
 })
+
+//intial count and total set
+updateSelectedCount();
